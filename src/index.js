@@ -5,14 +5,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import rootReducer from './reducer/reducer'
 
-function reducer() {
-  return {
-    title: "This is a mock reducer."
-  }
-}
 
-const store = createStore(reducer)
+const store = createStore(rootReducer)
 
 ReactDOM.render(
   <Provider store={store}>
