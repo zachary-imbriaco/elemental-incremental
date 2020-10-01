@@ -1,4 +1,4 @@
-import { ADD_FIRE } from "../actions/actions";
+import { ADD_AIR, ADD_EARTH, ADD_FIRE, ADD_WATER } from "../actions/actions";
 
 
 const initialState = {
@@ -14,6 +14,21 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 fire: action.payload
+            };
+        case ADD_WATER:
+            return {
+                ...state,
+                water: action.payload
+            };
+        case ADD_EARTH:
+            return {
+                ...state,
+                earth: action.payload
+            };
+        case ADD_AIR:
+            return {
+                ...state,
+                air: action.payload
             };
         default:
             return state;
