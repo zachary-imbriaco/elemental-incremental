@@ -14,3 +14,10 @@ export function increaseSpeed(element) {
         payload: element
     }
 }
+
+export function saveGame(state) {
+    return {
+        type: SAVE_GAME,
+        payload: state
+    }
+}
