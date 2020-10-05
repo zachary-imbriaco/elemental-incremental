@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import '../styles.css'
 
 import { incrementElement, increaseSpeed } from '../actions/actions';
 
@@ -41,7 +42,7 @@ class ElementsBar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='elements-component'>
                 <div className='elements-list'>
                     <p>Current fire: {this.props.fire}</p>
                     <p>Current water: {this.props.water}</p>
@@ -54,7 +55,7 @@ class ElementsBar extends React.Component {
                     <button onClick={this.incrementEarth}>Add Earth</button>
                     <button onClick={this.incrementAir}>Add Air</button>
                 </div>
-                <div className='elements-speed'>
+                <div className='elements-buttons'>
                     <button onClick={this.speedUpFire}>Increase Fire Speed: 10 Fire</button>
                     <button onClick={this.speedUpWater}>Increase Water Speed: 10 Water</button>
                     <button onClick={this.speedUpEarth}>Increase Earth Speed: 10 Earth</button>
