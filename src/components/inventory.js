@@ -1,0 +1,1 @@
+// Make a an array for inventory?  Object: quantity, or just strings with a function counting instances of each object?  No stats unless equipped, for ease of use.
