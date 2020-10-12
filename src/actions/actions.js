@@ -1,6 +1,6 @@
 export const INCREMENT_ELEMENT = 'INCREMENT_ELEMENT';
 export const INCREASE_SPEED = 'INCREASE_SPEED';
-export const CRAFT_ITEM = 'CRAFT_ITEM';
+export const ADD_ITEM = 'ADD_ITEM';
 
 export function incrementElement(element) {
     return {
@@ -16,9 +16,10 @@ export function increaseSpeed(element) {
     }
 }
 
-export function craftItem(item) {
+
+export function addItem(item) {
     return {
-        type: CRAFT_ITEM,
+        type: ADD_ITEM,
         payload: item
     }
 }

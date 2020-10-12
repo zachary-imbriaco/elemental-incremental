@@ -1,4 +1,4 @@
-import {INCREMENT_ELEMENT, INCREASE_SPEED } from "../actions/actions";
+import {INCREMENT_ELEMENT, INCREASE_SPEED, ADD_ITEM } from "../actions/actions";
 
 
 const initialState = {
@@ -13,7 +13,8 @@ const initialState = {
         earthQuant: 1,
         air: 0,
         airSpeed: 0,
-        airQuant: 1
+        airQuant: 1,
+        inventory: []
 }
 
 function reducer(state = initialState, action) {
@@ -77,6 +78,15 @@ function reducer(state = initialState, action) {
             }
             else {
                 return state;
+            }
+        
+        case ADD_ITEM:
+            return {
+                ...state,
+                inventory: [
+                    ...state.inventory,
+                    action.payload
+                ]
             }
 
         default:
