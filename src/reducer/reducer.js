@@ -2,26 +2,34 @@ import {INCREMENT_ELEMENT, INCREASE_SPEED, ADD_ITEM } from "../actions/actions";
 
 
 const initialState = {
-        fire: 0,
-        fireSpeed: 0,
-        fSpeedCost: 10,
-        fireQuant: 1,
-        fQuantCost: 100,
-        water: 0,
-        waterSpeed: 0,
-        wSpeedCost: 10,
-        waterQuant: 1,
-        wQuantCost: 100,
-        earth: 0,
-        earthSpeed: 0,
-        eSpeedCost: 10,
-        earthQuant: 1,
-        eQuantCost: 100,
-        air: 0,
-        airSpeed: 0,
-        aSpeedCost: 10,
-        airQuant: 1,
-        aQuantCost: 100,
+        fire: {
+            current: 0,
+            speed: 0,
+            speedCost: 10,
+            quantity: 1,
+            quantCost: 100,
+        },
+        water: {
+            current: 0,
+            speed: 0,
+            speedCost: 10,
+            quantity: 1,
+            quantCost: 100,
+        },
+        earth: {
+            current: 0,
+            speed: 0,
+            speedCost: 10,
+            quantity: 1,
+            quantCost: 100,
+        },
+        air: {
+            current: 0,
+            speed: 0,
+            speedCost: 10,
+            quantity: 1,
+            quantCost: 100,
+        },
         inventory: []
 }
 
@@ -31,112 +39,90 @@ function reducer(state = initialState, action) {
             if (action.payload === 'fire') {
                 return {
                     ...state,
-                    fire: state.fire + state.fireQuant
+                    fire: {
+                        ...state.fire,
+                        current:  state.fire.current + state.fire.quantity
+                    }
                 };
             }
             else if (action.payload === 'water') {
                 return {
                     ...state,
-                    water: state.water + state.waterQuant
+                    water: {
+                        ...state.water,
+                        current: state.water.current + state.water.quantity
+                    }
                 };
             }
             else if (action.payload === 'earth') {
                 return {
                     ...state,
-                    earth: state.earth + state.earthQuant
+                    earth: {
+                        ...state.earth,
+                        current: state.earth.current + state.earth.quantity
+                    }
                 };
             }
             else if (action.payload === 'air') {
                 return {
                     ...state,
-                    air: state.air + state.airQuant
-                };
+                    air: {
+                        ...state.air,
+                        current: state.air.current + state.air.quantity
+                    }
+                }
             }
             else {
                 return state;
             }
         case INCREASE_SPEED:
-            if (action.payload === 'fire' && state.fire >= state.fSpeedCost) {
+            if (action.payload === 'fire' && state.fire.current >= state.fire.speedCost) {
                 return {
                     ...state,
-                    fire: state.fire - state.fSpeedCost,
-                    fireSpeed: state.fireSpeed + 1,
-                    fSpeedCost: state.fSpeedCost * (state.fireSpeed + 2)
+                    fire: {
+                        ...state.fire,
+                        current: state.fire.current - state.fire.speedCost,
+                        speed: state.fire.speed + 1,
+                        speedCost: state.fire.speedCost * (state.fire.speed + 2)
+                    }
                 };
             }
-            else if (action.payload === 'water' && state.water >= state.wSpeedCost) {
+            else if (action.payload === 'water' && state.water.current >= state.water.speedCost) {
                 return {
                     ...state,
-                    water: state.water - state.wSpeedCost,
-                    waterSpeed: state.waterSpeed + 1,
-                    wSpeedCost: state.wSpeedCost * (state.waterSpeed + 2)
-                }
+                    water: {
+                        ...state.water,
+                        current: state.water.current - state.water.speedCost,
+                        speed: state.water.speed + 1,
+                        speedCost: state.water.speedCost * (state.water.speed + 2)
+                    }
+                };
             }
-            else if (action.payload === 'earth' && state.earth >= state.eSpeedCost) {
+            else if (action.payload === 'earth' && state.earth.current >= state.earth.speedCost) {
                 return {
                     ...state,
-                    earth: state.earth - state.eSpeedCost,
-                    earthSpeed: state.earthSpeed + 1,
-                    eSpeedCost: state.eSpeedCost * (state.earthSpeed + 2)
-                }
+                    earth: {
+                        ...state.earth,
+                        current: state.earth.current - state.earth.speedCost,
+                        speed: state.earth.speed + 1,
+                        speedCost: state.earth.speedCost * (state.earth.speed + 2)
+                    }
+                };
             }
-            else if (action.payload === 'air' && state.earth >= state.aSpeedCost) {
+            else if (action.payload === 'air' && state.air.current >= state.air.speedCost) {
                 return {
                     ...state,
-                    earth: state.earth - state.aSpeedCost,
-                    earthSpeed: state.earthSpeed + 1,
-                    aSpeedCost: state.aSpeedCost * (state.airSpeed + 2)
-                }
+                    air: {
+                        ...state.air,
+                        current: state.air.current - state.air.speedCost,
+                        speed: state.air.speed + 1,
+                        speedCost: state.air.speedCost * (state.earth.speed + 2)
+                    }
+                };
             }
             else {
                 return state;
-            }
-        
-        case ADD_ITEM:
-            if (action.payload.currency === 'Fire' && state.fire >= action.payload.price) {
-            return {
-                ...state,
-                fire: state.fire - action.payload.price,
-                inventory: [
-                    ...state.inventory,
-                    action.payload
-                ]
-            }
-        }
-        else if (action.payload.currency === 'Water' && state.water >= action.payload.price) {
-            return {
-                ...state,
-                water: state.water - action.payload.price,
-                inventory: [
-                    ...state.inventory,
-                    action.payload
-                ]
-            }
-        }
-        else if (action.payload.currency === 'Earth' && state.earth >= action.payload.price) {
-            return {
-                ...state,
-                earth: state.earth - action.payload.price,
-                inventory: [
-                    ...state.inventory,
-                    action.payload
-                ]
-            }
-        }
-        else if (action.payload.currency === 'Air' && state.air >= action.payload.price) {
-            return {
-                ...state,
-                air: state.air - action.payload.price,
-                inventory: [
-                    ...state.inventory,
-                    action.payload
-                ]
-            }
-        }
-        else {
-            return state;
-        }
-
+            };
         default:
             return state;
     }
