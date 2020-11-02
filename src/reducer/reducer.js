@@ -1,4 +1,4 @@
-import {INCREMENT_ELEMENT, INCREASE_SPEED, ADD_ITEM } from "../actions/actions";
+import {INCREMENT_ELEMENT, INCREASE_SPEED, ADD_ITEM, TICK_UP } from "../actions/actions";
 
 
 const initialState = {
@@ -8,6 +8,7 @@ const initialState = {
             speedCost: 10,
             quantity: 1,
             quantCost: 100,
+            tick: 0
         },
         water: {
             current: 0,
@@ -15,6 +16,7 @@ const initialState = {
             speedCost: 10,
             quantity: 1,
             quantCost: 100,
+            tick: 0
         },
         earth: {
             current: 0,
@@ -22,6 +24,7 @@ const initialState = {
             speedCost: 10,
             quantity: 1,
             quantCost: 100,
+            tick: 0
         },
         air: {
             current: 0,
@@ -29,6 +32,7 @@ const initialState = {
             speedCost: 10,
             quantity: 1,
             quantCost: 100,
+            tick: 0
         },
         inventory: []
 }
@@ -120,6 +124,16 @@ function reducer(state = initialState, action) {
                     }
                 };
             }
+            case TICK_UP:
+                if (action.payload === 'fire') {
+                    return {
+                        ...state,
+                        fire: {
+                            ...state.fire,
+                            tick: state.fire.tick + state.fire.speed
+                        }
+                    }
+                }
             else {
                 return state;
             };
