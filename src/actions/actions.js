@@ -31,3 +31,10 @@ export function addItem(item) {
         payload: item
     }
 }
+
+export function tickReset(element) {
+    return {
+        type: TICK_RESET,
+        payload: element
+    }
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../styles.css'
 
-import { incrementElement, increaseSpeed, tickUp } from '../actions/actions';
+import { incrementElement, increaseSpeed } from '../actions/actions';
 
 class ElementBar extends React.Component {
 
@@ -58,7 +58,42 @@ class ElementBar extends React.Component {
                 </div>
             )
         }
-
+        if (this.props.element == 'earth') {
+            return (
+                <div className='elements-component'>
+                    <div className='elements-list'>
+                        <p>Current {this.props.element}: {this.props.earth.current} </p>
+                    </div>
+                    <div className='elements-buttons'>
+                        <button onClick={this.increment}>Add {this.props.element}</button>
+                    </div>
+                    <div className='elements-list'>
+                        <p>{this.props.element}/second: {this.props.earth.speed}</p>
+                    </div>
+                    <div className='elements-buttons'>
+                        <button onClick={this.speedUp}>Increase {this.props.element} Speed: {this.props.earth.speedCost} {this.props.element}</button>
+                    </div>
+                </div>
+            )
+        }
+        if (this.props.element == 'air') {
+            return (
+                <div className='elements-component'>
+                    <div className='elements-list'>
+                        <p>Current {this.props.element}: {this.props.air.current} </p>
+                    </div>
+                    <div className='elements-buttons'>
+                        <button onClick={this.increment}>Add {this.props.element}</button>
+                    </div>
+                    <div className='elements-list'>
+                        <p>{this.props.element}/second: {this.props.air.speed}</p>
+                    </div>
+                    <div className='elements-buttons'>
+                        <button onClick={this.speedUp}>Increase {this.props.element} Speed: {this.props.air.speedCost} {this.props.element}</button>
+                    </div>
+                </div>
+            )
+        }
     }
 
 
