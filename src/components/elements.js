@@ -2,68 +2,65 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../styles.css'
 
-import { incrementElement, increaseSpeed } from '../actions/actions';
+import { incrementElement, increaseSpeed, tickUp } from '../actions/actions';
 
-class ElementsBar extends React.Component {
+class ElementBar extends React.Component {
 
-    incrementFire = (e) => {
+
+
+    
+    increment = (e) => {
         e.preventDefault()
-        this.props.incrementElement('fire')
-    }
-    incrementWater = (e) => {
-        e.preventDefault()
-        this.props.incrementElement('water')
-    }
-    incrementEarth = (e) => {
-        e.preventDefault()
-        this.props.incrementElement('earth')
-    }
-    incrementAir = (e) => {
-        e.preventDefault()
-        this.props.incrementElement('air')
+        this.props.incrementElement(this.props.element)
     }
 
-    speedUpFire = (e) => {
+    speedUp = (e) => {
         e.preventDefault()
-        this.props.increaseSpeed('fire')
+        this.props.increaseSpeed(this.props.element)
     }
-    speedUpWater = (e) => {
-        e.preventDefault()
-        this.props.increaseSpeed('water')
-    }
-    speedUpEarth = (e) => {
-        e.preventDefault()
-        this.props.increaseSpeed('earth')
-    }
-    speedUpAir = (e) => {
-        e.preventDefault()
-        this.props.increaseSpeed('air')
-    }
+
+
 
     render() {
-        return (
-            <div className='elements-component'>
-                <div className='elements-list'>
-                    <p>Current fire: {this.props.fire}</p>
-                    <p>Current water: {this.props.water}</p>
-                    <p>Current earth: {this.props.earth}</p>
-                    <p>Current air: {this.props.air}</p>
+        if (this.props.element == 'fire') {
+            return (
+                <div className='elements-component'>
+                    <div className='elements-list'>
+                        <p>Current {this.props.element}: {this.props.fire.current} </p>
+                    </div>
+                    <div className='elements-buttons'>
+                        <button onClick={this.increment}>Add {this.props.element}</button>
+                    </div>
+                    <div className='elements-list'>
+                        <p>{this.props.element}/second: {this.props.fire.speed}</p>
+                    </div>
+                    <div className='elements-buttons'>
+                        <button onClick={this.speedUp}>Increase {this.props.element} Speed: {this.props.fire.speedCost} {this.props.element}</button>
+                    </div>
                 </div>
-                <div className='elements-buttons'>
-                    <button onClick={this.incrementFire}>Add Fire</button>
-                    <button onClick={this.incrementWater}>Add Water</button>
-                    <button onClick={this.incrementEarth}>Add Earth</button>
-                    <button onClick={this.incrementAir}>Add Air</button>
+            )
+        }
+        if (this.props.element == 'water') {
+            return (
+                <div className='elements-component'>
+                    <div className='elements-list'>
+                        <p>Current {this.props.element}: {this.props.water.current} </p>
+                    </div>
+                    <div className='elements-buttons'>
+                        <button onClick={this.increment}>Add {this.props.element}</button>
+                    </div>
+                    <div className='elements-list'>
+                        <p>{this.props.element}/second: {this.props.water.speed}</p>
+                    </div>
+                    <div className='elements-buttons'>
+                        <button onClick={this.speedUp}>Increase {this.props.element} Speed: {this.props.water.speedCost} {this.props.element}</button>
+                    </div>
                 </div>
-                <div className='elements-buttons'>
-                    <button onClick={this.speedUpFire}>Increase Fire Speed: 10 Fire</button>
-                    <button onClick={this.speedUpWater}>Increase Water Speed: 10 Water</button>
-                    <button onClick={this.speedUpEarth}>Increase Earth Speed: 10 Earth</button>
-                    <button onClick={this.speedUpAir}>Increase Air Speed: 10 Air</button>
-                </div>
-            </div>
-        )
+            )
+        }
+
     }
+
 
 }
 
@@ -73,11 +70,10 @@ const mapStateToProps = state => {
         fire: state.fire,
         water: state.water,
         earth: state.earth,
-        air: state.air
-    }
+        air: state.air,
+        }
 }
-
 export default connect(
     mapStateToProps, 
     { incrementElement, increaseSpeed }
-)(ElementsBar)
+)(ElementBar)
