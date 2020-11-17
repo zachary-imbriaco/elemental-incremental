@@ -1,12 +1,11 @@
 import React from 'react';
-import ElementBar from './components/elements'
+import ElementWrapper from './components/elementwrapper';
 import './styles.css'
 
 function App() {
   return (
     <div>
-      <ElementBar element='fire' />
-      <ElementBar element='water' />
+      <ElementWrapper />
     </div>
   );
 }

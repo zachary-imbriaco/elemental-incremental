@@ -1,4 +1,4 @@
-import {INCREMENT_ELEMENT, INCREASE_SPEED, ADD_ITEM, TICK_UP } from "../actions/actions";
+import {INCREMENT_ELEMENT, INCREASE_SPEED, ADD_ITEM, TICK_UP, TICK_RESET } from "../actions/actions";
 
 
 const initialState = {
@@ -124,19 +124,86 @@ function reducer(state = initialState, action) {
                     }
                 };
             }
-            case TICK_UP:
-                if (action.payload === 'fire') {
-                    return {
-                        ...state,
-                        fire: {
-                            ...state.fire,
-                            tick: state.fire.tick + state.fire.speed
-                        }
-                    }
-                }
             else {
                 return state;
             };
+        case TICK_UP:
+            if (action.payload === 'fire') {
+                return {
+                    ...state,
+                    fire: {
+                        ...state.fire,
+                        tick: state.fire.tick + state.fire.speed
+                    }
+                }
+            }
+            else if (action.payload === 'water') {
+                return {
+                    ...state,
+                    water: {
+                        ...state.water,
+                        tick: state.water.tick + state.water.speed
+                    }
+                }
+            }
+            else if (action.payload === 'earth') {
+                return {
+                    ...state,
+                    earth: {
+                        ...state.earth,
+                        tick: state.earth.tick + state.earth.speed
+                    }
+                }
+            }
+            else if (action.payload === 'air') {
+                return {
+                    ...state,
+                    air: {
+                        ...state.air,
+                        tick: state.air.tick + state.air.speed
+                    }
+                }
+            }
+            else {
+                return state;
+            };
+        case TICK_RESET:
+            if(action.payload === 'fire') {
+                return {
+                    ...state,
+                    fire: {
+                        ...state.fire,
+                        tick: 0
+                    }
+                }
+            }
+            else if(action.payload === 'water') {
+                return {
+                    ...state,
+                    water: {
+                        ...state.water,
+                        tick: 0
+                    }
+                }
+            }
+            else if(action.payload === 'earth') {
+                return {
+                    ...state,
+                    earth: {
+                        ...state.earth,
+                        tick: 0
+                    }
+                }
+            }
+            else if(action.payload === 'air') {
+                return {
+                    ...state,
+                    air: {
+                        ...state.air,
+                        tick: 0
+                    }
+                }
+            }
         default:
             return state;
     }
