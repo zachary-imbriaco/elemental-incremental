@@ -2,6 +2,7 @@ export const INCREMENT_ELEMENT = 'INCREMENT_ELEMENT';
 export const INCREASE_SPEED = 'INCREASE_SPEED';
 export const ADD_ITEM = 'ADD_ITEM';
 export const TICK_UP = 'TICK_UP';
+export const TICK_RESET = 'TICK_RESET';
 
 export function incrementElement(element) {
     return {

@@ -22,7 +22,7 @@ class ElementBar extends React.Component {
 
 
     render() {
-        if (this.props.element == 'fire') {
+        if (this.props.element === 'fire') {
             return (
                 <div className='elements-component'>
                     <div className='elements-list'>
@@ -40,7 +40,7 @@ class ElementBar extends React.Component {
                 </div>
             )
         }
-        if (this.props.element == 'water') {
+        if (this.props.element === 'water') {
             return (
                 <div className='elements-component'>
                     <div className='elements-list'>
@@ -58,7 +58,7 @@ class ElementBar extends React.Component {
                 </div>
             )
         }
-        if (this.props.element == 'earth') {
+        if (this.props.element === 'earth') {
             return (
                 <div className='elements-component'>
                     <div className='elements-list'>
@@ -76,7 +76,7 @@ class ElementBar extends React.Component {
                 </div>
             )
         }
-        if (this.props.element == 'air') {
+        if (this.props.element === 'air') {
             return (
                 <div className='elements-component'>
                     <div className='elements-list'>
@@ -93,6 +93,9 @@ class ElementBar extends React.Component {
                     </div>
                 </div>
             )
+        }
+        else {
+            return null
         }
     }
 

@@ -1,4 +1,4 @@
-import {INCREMENT_ELEMENT, INCREASE_SPEED, ADD_ITEM, TICK_UP } from "../actions/actions";
+import {INCREMENT_ELEMENT, INCREASE_SPEED, ADD_ITEM, TICK_UP, TICK_RESET } from "../actions/actions";
 
 
 const initialState = {
