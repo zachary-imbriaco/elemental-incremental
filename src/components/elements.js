@@ -95,6 +95,7 @@ class ElementBar extends React.Component {
             )
         }
         else {
+            console.log(this.props.element)
             return null
         }
     }
