@@ -5,6 +5,8 @@ import ElementBar from './elements.js'
 
 import { tickUp, incrementElement, tickReset } from '../actions/actions.js'
 
+
+//Outdated, ignore this file until deleted/updated.
 class ElementWrapper extends React.Component {
 
 
