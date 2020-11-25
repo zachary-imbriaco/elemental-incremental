@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../styles.css'
 
-import { incrementElement, increaseSpeed } from '../actions/actions';
+import { incrementElement, increaseSpeed, tickUp, tickReset } from '../actions/actions';
 
 class ElementBar extends React.Component {
 
@@ -116,5 +116,5 @@ const mapStateToProps = state => {
 }
 export default connect(
     mapStateToProps, 
-    { incrementElement, increaseSpeed }
+    { incrementElement, increaseSpeed, tickUp, tickReset }
 )(ElementBar)
