@@ -17,6 +17,7 @@ class ElementBar extends React.Component {
     speedUp = (e) => {
         e.preventDefault()
         this.props.increaseSpeed(this.props.element)
+        this.props.tickReset(this.props.element)
     }
 
 
