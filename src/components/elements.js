@@ -103,6 +103,12 @@ class ElementBar extends React.Component {
         }
     }
 
+    componentDidMount(){
+        if(this.props.fire.tick < 1000){
+            this.props.tickUp(this.props.fire)
+        }
+    }
+
 
 }
 
