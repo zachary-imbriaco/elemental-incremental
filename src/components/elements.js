@@ -8,6 +8,7 @@ class ElementBar extends React.Component {
 
 
 
+
     
     increment = (e) => {
         e.preventDefault()
@@ -106,9 +107,23 @@ class ElementBar extends React.Component {
     componentDidMount(){
         if(this.props.fire.tick < 1000){
             this.props.tickUp('fire')
+            console.log(this.props.fire.tick)
         }
         else{
             this.props.incrementElement('fire')
+            this.props.tickReset('fire')
+        }
+    }
+
+
+    componentDidUpdate(){
+
+        if(this.props.fire.tick < 1000){
+            this.props.fire.tick = this.props.fire.tick + this.props.fire.speed
+            console.log(this.props.fire.tick)
+        }
+        else{
+            this.increment('fire')
             this.props.tickReset('fire')
         }
     }

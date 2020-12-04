@@ -8,7 +8,7 @@ const initialState = {
             speedCost: 10,
             quantity: 1,
             quantCost: 100,
-            tick: 0
+            tick: 10
         },
         water: {
             current: 0,

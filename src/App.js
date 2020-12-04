@@ -1,5 +1,4 @@
 import React from 'react';
-import ElementWrapper from './components/elementwrapper';
 import ElementBar from './components/elements'
 import './styles.css'
 
