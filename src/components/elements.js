@@ -42,60 +42,6 @@ class ElementBar extends React.Component {
                 </div>
             )
         }
-        if (this.props.element === 'water') {
-            return (
-                <div className='elements-component'>
-                    <div className='elements-list'>
-                        <p>Current {this.props.element}: {this.props.water.current} </p>
-                    </div>
-                    <div className='elements-buttons'>
-                        <button onClick={this.increment}>Add {this.props.element}</button>
-                    </div>
-                    <div className='elements-list'>
-                        <p>{this.props.element}/second: {this.props.water.speed}</p>
-                    </div>
-                    <div className='elements-buttons'>
-                        <button onClick={this.speedUp}>Increase {this.props.element} Speed: {this.props.water.speedCost} {this.props.element}</button>
-                    </div>
-                </div>
-            )
-        }
-        if (this.props.element === 'earth') {
-            return (
-                <div className='elements-component'>
-                    <div className='elements-list'>
-                        <p>Current {this.props.element}: {this.props.earth.current} </p>
-                    </div>
-                    <div className='elements-buttons'>
-                        <button onClick={this.increment}>Add {this.props.element}</button>
-                    </div>
-                    <div className='elements-list'>
-                        <p>{this.props.element}/second: {this.props.earth.speed}</p>
-                    </div>
-                    <div className='elements-buttons'>
-                        <button onClick={this.speedUp}>Increase {this.props.element} Speed: {this.props.earth.speedCost} {this.props.element}</button>
-                    </div>
-                </div>
-            )
-        }
-        if (this.props.element === 'air') {
-            return (
-                <div className='elements-component'>
-                    <div className='elements-list'>
-                        <p>Current {this.props.element}: {this.props.air.current} </p>
-                    </div>
-                    <div className='elements-buttons'>
-                        <button onClick={this.increment}>Add {this.props.element}</button>
-                    </div>
-                    <div className='elements-list'>
-                        <p>{this.props.element}/second: {this.props.air.speed}</p>
-                    </div>
-                    <div className='elements-buttons'>
-                        <button onClick={this.speedUp}>Increase {this.props.element} Speed: {this.props.air.speedCost} {this.props.element}</button>
-                    </div>
-                </div>
-            )
-        }
         else {
             console.log(this.props.element)
             return (
